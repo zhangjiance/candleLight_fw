@@ -436,6 +436,8 @@ THE SOFTWARE.
 	#define NUM_CAN_CHANNEL			 4
 	#define CONFIG_CANFD			 1
 
+	#define TERM_Pin				 1
+
 #else
 	#error please define BOARD
 #endif
