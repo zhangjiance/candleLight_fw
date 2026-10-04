@@ -414,6 +414,28 @@ THE SOFTWARE.
 	#define NUM_CAN_CHANNEL			 1
 	#define CONFIG_CANFD			 1
 
+#elif defined(BOARD_hpm5321_usb2can)
+	/* HPMicro HPM5321/HPM5361 USB2CANFD dongle */
+	#define USBD_PRODUCT_STRING_FS	 (uint8_t*) "HPM USB2CANFD gs_usb"
+	#define USBD_MANUFACTURER_STRING (uint8_t*) "HPMicro"
+	#define DFU_INTERFACE_STRING_FS	 (uint8_t*) "HPM USB2CANFD firmware upgrade interface"
+
+	/* Must match board_init_can_clock(): clk_src_pll1_clk0 (800 MHz) / 10 */
+	#define CAN_CLOCK_SPEED			 80000000
+	#define NUM_CAN_CHANNEL			 4
+	#define CONFIG_CANFD			 1
+
+#elif defined(BOARD_hscant)
+	/* HPMicro HSCanT (HPM5321/HPM5361) */
+	#define USBD_PRODUCT_STRING_FS	 (uint8_t*) "HSCanT USB2CANFD gs_usb"
+	#define USBD_MANUFACTURER_STRING (uint8_t*) "HPMicro"
+	#define DFU_INTERFACE_STRING_FS	 (uint8_t*) "HSCanT firmware upgrade interface"
+
+	/* Must match boards/hscant/clock.c: clk_src_pll1_clk0 (800 MHz) / 10 */
+	#define CAN_CLOCK_SPEED			 80000000
+	#define NUM_CAN_CHANNEL			 4
+	#define CONFIG_CANFD			 1
+
 #else
 	#error please define BOARD
 #endif
