@@ -438,6 +438,19 @@ THE SOFTWARE.
 
 	#define TERM_Pin				 1
 
+#elif defined(BOARD_hscant_lite)
+	/* HPMicro HSCanT-Lite (HPM5321/HPM5361) */
+	#define USBD_PRODUCT_STRING_FS	 (uint8_t*) "HSCanT Lite USB2CANFD gs_usb"
+	#define USBD_MANUFACTURER_STRING (uint8_t*) "HPMicro"
+	#define DFU_INTERFACE_STRING_FS	 (uint8_t*) "HSCanT Lite firmware upgrade interface"
+
+	/* Must match boards/hscant-lite/clock.c: clk_src_pll1_clk0 (800 MHz) / 10 */
+	#define CAN_CLOCK_SPEED			 80000000
+	#define NUM_CAN_CHANNEL			 4
+	#define CONFIG_CANFD			 1
+
+	/* No termination-control pins on this board: TERM_Pin stays undefined. */
+
 #else
 	#error please define BOARD
 #endif
