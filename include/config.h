@@ -451,6 +451,21 @@ THE SOFTWARE.
 
 	/* No termination-control pins on this board: TERM_Pin stays undefined. */
 
+#elif defined(BOARD_hpmicro_evk)
+	/* Any hpm_sdk EVK with an MCAN controller and an on-chip USB device port.
+	 * BOARD selects the SDK board package; the candle bindings live in
+	 * boards/hpmicro_evk/hpmicro_evk.h (force-included by CMakeLists.txt). */
+	#define USBD_PRODUCT_STRING_FS	 (uint8_t*) BOARD_NAME " USB2CANFD gs_usb"
+	#define USBD_MANUFACTURER_STRING (uint8_t*) "HPMicro"
+	#define DFU_INTERFACE_STRING_FS	 (uint8_t*) BOARD_NAME " firmware upgrade interface"
+
+	/* All supported SDK EVKs clock their MCAN kernel at 80 MHz. */
+	#define CAN_CLOCK_SPEED			 80000000
+	#define NUM_CAN_CHANNEL			 1
+	#define CONFIG_CANFD			 1
+
+	/* No termination-control pin on the EVKs: TERM_Pin stays undefined. */
+
 #else
 	#error please define BOARD
 #endif
