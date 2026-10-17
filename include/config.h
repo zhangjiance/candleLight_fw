@@ -472,6 +472,46 @@
 	#define NUM_CAN_CHANNEL			 1
 	#define CONFIG_CANFD			 1
 
+#elif defined(BOARD_hscant)
+	/* HPMicro HSCanT (HPM5321/HPM5361) */
+	#define USBD_PRODUCT_STRING_FS	 (uint8_t*) "HSCanT USB2CANFD gs_usb"
+	#define USBD_MANUFACTURER_STRING (uint8_t*) "HPMicro"
+	#define DFU_INTERFACE_STRING_FS	 (uint8_t*) "HSCanT firmware upgrade interface"
+
+	/* 80 MHz CAN clock. */
+	#define CAN_CLOCK_SPEED			 80000000
+	#define NUM_CAN_CHANNEL			 4
+	#define CONFIG_CANFD			 1
+	#define CONFIG_TERMINATION		 1
+
+	#define TERM_Pin				 1
+
+#elif defined(BOARD_hscant_lite)
+	/* HPMicro HSCanT-Lite (HPM5321/HPM5361) */
+	#define USBD_PRODUCT_STRING_FS	 (uint8_t*) "HSCanT Lite USB2CANFD gs_usb"
+	#define USBD_MANUFACTURER_STRING (uint8_t*) "HPMicro"
+	#define DFU_INTERFACE_STRING_FS	 (uint8_t*) "HSCanT Lite firmware upgrade interface"
+
+	/* 80 MHz CAN clock. */
+	#define CAN_CLOCK_SPEED			 80000000
+	#define NUM_CAN_CHANNEL			 4
+	#define CONFIG_CANFD			 1
+
+	/* No termination pin. */
+
+#elif defined(BOARD_hpmicro_evk)
+	/* hpm_sdk EVK with MCAN + USB. */
+	#define USBD_PRODUCT_STRING_FS	 (uint8_t*) BOARD_NAME " USB2CANFD gs_usb"
+	#define USBD_MANUFACTURER_STRING (uint8_t*) "HPMicro"
+	#define DFU_INTERFACE_STRING_FS	 (uint8_t*) BOARD_NAME " firmware upgrade interface"
+
+	/* MCAN clock. */
+	#define CAN_CLOCK_SPEED			 80000000
+	#define NUM_CAN_CHANNEL			 1
+	#define CONFIG_CANFD			 1
+
+	/* No termination pin. */
+
 #else
 	#error please define BOARD
 #endif
