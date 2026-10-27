@@ -486,6 +486,19 @@
 
 	#define TERM_Pin				 1
 
+#elif defined(BOARD_ch32l103_candle)
+	/* WCH CH32L103 (64 KB flash / 20 KB SRAM) - see boards/ch32l103_candle */
+	#define USBD_PRODUCT_STRING_FS	 (uint8_t*) "CH32L103 USB2CANFD gs_usb"
+	#define USBD_MANUFACTURER_STRING (uint8_t*) "candleLight"
+	#define DFU_INTERFACE_STRING_FS	 (uint8_t*) "CH32L103 firmware upgrade interface"
+
+	/* APB1 = 48 MHz feeds the bxCAN cell (see boards/ch32l103_candle/board.cmake). */
+	#define CAN_CLOCK_SPEED			 48000000
+	#define NUM_CAN_CHANNEL			 1
+	#define CONFIG_BXCAN			 1
+	#define CONFIG_CANFD			 1
+	#define CONFIG_TERMINATION		 1
+
 #elif defined(BOARD_hscant_lite)
 	/* HPMicro HSCanT-Lite (HPM5321/HPM5361) */
 	#define USBD_PRODUCT_STRING_FS	 (uint8_t*) "HSCanT Lite USB2CANFD gs_usb"
